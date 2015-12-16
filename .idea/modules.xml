@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Rutabaga.iml" filepath="$PROJECT_DIR$/Rutabaga.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rutabaga.iml" filepath="$PROJECT_DIR$/rutabaga.iml" />
       <module fileurl="file://$PROJECT_DIR$/rutabaga.iml" filepath="$PROJECT_DIR$/rutabaga.iml" />
       <module fileurl="file://$PROJECT_DIR$/rutabaga.iml" filepath="$PROJECT_DIR$/rutabaga.iml" />
     </modules>

@@ -164,7 +164,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 startActivity(intent);
             }
         });
-        facebook.setOnClickListener(new View.OnClickListener() {
 
         filters_button.setOnClickListener(new View.OnClickListener() {
             @Override
