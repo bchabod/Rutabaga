@@ -18,6 +18,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -55,11 +56,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Marker lastSelected;
 
     private Button information;
+    private Button filters_button;
     private FloatingActionButton localize;
     private Button settings;
     private FloatingActionButton facebook;
     private Toolbar toolbar;
     private EditText searchField;
+    private LinearLayout filters;
 
     private boolean hidden = false;
     private boolean select = false;
@@ -89,10 +92,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         information = (Button) findViewById(R.id.information);
         settings = (Button) findViewById(R.id.settings);
+        filters_button = (Button) findViewById(R.id.filters);
         localize = (FloatingActionButton) findViewById(R.id.localize);
         facebook = (FloatingActionButton) findViewById(R.id.facebook);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         searchField = (EditText) findViewById(R.id.search_field);
+        filters = (LinearLayout) findViewById(R.id.layout_filters);
 
         restaurantMarkers = new ArrayList<>();
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(45.7814008, 4.8735197), 17.0f));
@@ -160,6 +165,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
         facebook.setOnClickListener(new View.OnClickListener() {
+
+        filters_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(hidden) {
+                    filters.setVisibility(View.VISIBLE);
+                    hidden = false;
+                } else {
+                    filters.setVisibility(View.GONE);
+                    hidden = true;
+                }
+            }
+        });
+
+        facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onFacebook();
@@ -169,33 +189,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         information.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            }
-        });
 
-        searchField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean isFocused) {
-                if(lastSelected!=null) lastSelected.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.marker));
-                if(searchField.getText().length()==0) searchField.setText("Recherchez un restaurant");
-                information.setVisibility(View.GONE);
-                focus = isFocused;
-            }
-        });
-
-        searchField.setOnEditorActionListener(new EditText.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    for (Marker marker : restaurantMarkers) marker.setVisible(true);
-                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(searchField.getWindowToken(), 0);
-                    if(searchField.getText().length()==0) { searchField.setText("Recherchez un restaurant"); return true; }
-
-                    for (Marker marker : restaurantMarkers) {
-                        if(!marker.getTitle().contains(searchField.getText())) marker.setVisible(false);
-                    }
-                }
-                return true;
             }
         });
 
@@ -247,19 +241,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapClick(LatLng point) {
-
         if (!focus && !select){
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(searchField.getWindowToken(), 0);
             if (hidden) {
+                /*
                 toolbar.setVisibility(View.VISIBLE);
                 facebook.setVisibility(View.VISIBLE);
                 localize.setVisibility(View.VISIBLE);
                 hidden = false;
+                */
             } else {
+                /*
                 facebook.setVisibility(View.GONE);
                 localize.setVisibility(View.GONE);
                 toolbar.setVisibility(View.GONE);
+                */
+                filters.setVisibility(View.GONE);
                 hidden = true;
             }
         }

@@ -34,38 +34,171 @@
         android:text="Sélectionnez un restaurant"
         android:background="#FFFFFFFF"/>
 
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/toolbar"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_gravity="top|left"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:background="@color/colorPrimary">
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/settings"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="top|left"
-            android:layout_marginLeft="2dp"
-            android:background="@drawable/burger"/>
+        <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@color/colorPrimary">
 
-        <EditText
-            android:id="@+id/search_field"
-            android:selectAllOnFocus="true"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="top|left"
-            android:imeOptions="actionSearch"
-            android:layout_marginLeft="34dp"
-            android:singleLine="true"
-            android:text="@string/action_search"
-            android:background="@null"/>
+            <Button
+                android:id="@+id/settings"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="2dp"
+                android:background="@drawable/burger"/>
 
-    </android.support.v7.widget.Toolbar>
+            <EditText
+                android:id="@+id/search_field"
+                android:selectAllOnFocus="true"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="top|left"
+                android:imeOptions="actionSearch"
+                android:layout_marginLeft="34dp"
+                android:layout_marginRight="34dp"
+                android:singleLine="true"
+                android:hint="@string/action_search"
+                android:background="@null"/>
+
+            <Button
+                android:id="@+id/filters"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="top|right"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/filter"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:background="#FFFFFF"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:orientation="vertical"
+            android:id="@+id/layout_filters"
+            android:visibility="gone"
+            android:clickable="true"
+            >
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Type de menu :"
+                    android:id="@+id/textView2"
+                    android:labelFor="@+id/spinner" />
+
+                <Spinner
+                    android:layout_width="291dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Attente maximale :"
+                android:id="@+id/textView3"
+                android:labelFor="@id/spinner" />
+
+            <NumberPicker
+                android:layout_width="174dp"
+                android:layout_height="74dp"
+                android:id="@+id/numberPicker" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nombre d&apos;amis minimum :"
+                android:id="@+id/textView4"
+                android:labelFor="@id/spinner" />
+
+            <NumberPicker
+                android:layout_width="174dp"
+                android:layout_height="74dp"
+                android:id="@+id/numberPicker2" />
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Notation :"
+                    android:id="@+id/textView5" />
+
+                <RatingBar
+                    android:id="@+id/ratingBarGen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="4"
+                    android:stepSize="1.0"
+                    android:rating="2.0" />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Prix :"
+                    android:id="@+id/textView6" />
+
+                <RatingBar
+                    android:id="@+id/ratingBarPrix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="4"
+                    android:stepSize="1.0"
+                    android:rating="4.0" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filtrer"
+                android:id="@+id/button"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </fragment>
