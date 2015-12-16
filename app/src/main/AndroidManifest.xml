@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
 
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -30,6 +31,14 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".RestaurantActivity"
+            android:label="@string/title_activity_restaurant">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

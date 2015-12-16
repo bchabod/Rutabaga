@@ -56,6 +56,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private Button information;
     private FloatingActionButton localize;
+    private Button settings;
     private FloatingActionButton facebook;
     private Toolbar toolbar;
     private EditText searchField;
@@ -87,6 +88,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setCompassEnabled(false);
 
         information = (Button) findViewById(R.id.information);
+        settings = (Button) findViewById(R.id.settings);
         localize = (FloatingActionButton) findViewById(R.id.localize);
         facebook = (FloatingActionButton) findViewById(R.id.facebook);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -150,6 +152,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapsActivity.this, RestaurantActivity.class);
+                startActivity(intent);
+            }
+        });
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,7 +169,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         information.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
 
