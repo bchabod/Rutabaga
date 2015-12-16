@@ -5,4 +5,5 @@
     <string name="facebook_app_id">"1952724764953517"</string>
     <string name="title_activity_test">Test</string>
     <string name="action_search">Recherchez un restaurant</string>
+    <string name="google_maps_key">AIzaSyAl_mFTPJdUAQAdJFmHd5RrjacO8dL_ksg</string>
 </resources>
