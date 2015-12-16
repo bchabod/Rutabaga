@@ -35,3 +35,5 @@ _ReSharper*/
 .DS_Store
 /build
 /captures
+*/build
+app/build

@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">Rutabaga</string>
+    <string name="app_name">RUtabaga</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="facebook_app_id">"1952724764953517"</string>
+    <string name="title_activity_test">Test</string>
+    <string name="action_search">Recherchez un restaurant</string>
 </resources>
